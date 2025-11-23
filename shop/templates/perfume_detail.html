@@ -2,21 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ perfume.name }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        p {
+            color: #555;
+            margin: 10px 0;
+        }
+        .btn {
+            display: inline-block;
+            margin: 15px 10px 0;
+            padding: 12px 25px;
+            background: #ff6f61;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #e85c50;
+        }
+        .btn-secondary {
+            background: #4CAF50;
+        }
+        .btn-secondary:hover {
+            background: #3e9e40;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>{{ perfume.name }}</h1>
+        <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}">
+        <p><strong>Price:</strong> ₹{{ perfume.price }}</p>
+        <p><strong>Description:</strong> {{ perfume.description }}</p>
 
-    <h1>{{ perfume.name }}</h1>
-
-    <img src="{{ perfume.image.url }}" alt="{{ perfume.name }}" width="200"><br><br>
-
-    <p><strong>Price:</strong> ₹{{ perfume.price }}</p>
-    <p><strong>Description:</strong> {{ perfume.description }}</p>
-
-    <a href="{% url 'add_to_cart' perfume.id %}">Add to Cart</a><br><br>
-
-    <a href="{% url 'product_list' %}">Back to Products</a>
-
+        <a href="{% url 'add_to_cart' perfume.id %}" class="btn">Add to Cart</a>
+        <a href="{% url 'perfume_list' %}" class="btn btn-secondary">Back to Products</a>
+    </div>
 </body>
 </html>

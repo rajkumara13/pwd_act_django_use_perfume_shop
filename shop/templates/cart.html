@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-</head>
-<body>
-    <h1>Your Cart</h1>
+{% extends "base.html" %}
 
-    {% if cart_items %}
-        <ul>{% for item in cart_items %}<li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>{% endfor %}</ul>
-    {% else %}
-        <p>Your cart is empty.</p>
-    {% endif %}
-</body>
-</html>
+{% block title %}Your Cart{% endblock %}
+
+{% block content %}
+    <h1>🛒 Your Cart</h1>
+    <div class="cart-container">
+        {% if cart_items %}
+            {% for item in cart_items %}
+                <div class="cart-item">
+                    <div>
+                        <strong>{{ item.product.name }}</strong><br>
+                        <small>Price: ₹{{ item.product.price }}</small>
+                    </div>
+                    <div>
+                        <span>Qty: {{ item.quantity }}</span>
+                        <form method="post" action="{% url 'remove_from_cart' item.id %}" class="form-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-remove">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+            <a href="{% url 'checkout' %}" class="btn-checkout">Proceed to Checkout</a>
+        {% else %}
+            <div class="alert">Your cart is empty.</div>
+        {% endif %}
+    </div>
+{% endblock %}

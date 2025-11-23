@@ -2,14 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfume Shop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+        }
+        header {
+            background: #ff6f61;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #4CAF50;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #3e9e40;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Perfume Shop</h1>
+    <header>
+        <h1>🌸 Perfume Shop 🌸</h1>
+        <p>Discover premium fragrances for every occasion</p>
+    </header>
 
-    <p>Explore our premium perfumes and enjoy shopping!</p>
-<a href="{% url 'perfume_list' %}">View Perfumes</a>
+    <div class="container">
+        <h2>Welcome to the Perfume Shop</h2>
+        <p>Explore our exclusive collection of perfumes and gift sets.  
+           Find your signature scent today!</p>
+        <a href="{% url 'perfume_list' %}" class="btn">View Perfumes</a>
+    </div>
 
+    <footer>
+        <p>&copy; 2025 Perfume Shop. All rights reserved.</p>
+    </footer>
 </body>
 </html>

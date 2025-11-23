@@ -2,13 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Success</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .success-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        .success-box h1 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        .success-box p {
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #ff6f61;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #e85c50;
+        }
+    </style>
 </head>
 <body>
-    <h1>Order Successfully Placed!</h1>
-    <p>Thank you for shopping with us.</p>
-
-    <a href="{% url 'product_list' %}">Back to Products</a>
+    <div class="success-box">
+        <h1>✅ Order Successfully Placed!</h1>
+        <p>Thank you for shopping with us. Your perfumes will be delivered soon.</p>
+        <a href="{% url 'perfume_list' %}" class="btn">Back to Products</a>
+    </div>
 </body>
 </html>
